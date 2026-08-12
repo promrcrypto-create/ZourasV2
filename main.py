@@ -49,6 +49,7 @@ PORT_RANGE_START = 10000
 PORT_RANGE_END = 11000
 HOST_DOMAIN = os.environ.get('HOST_DOMAIN', 'localhost')
 HOST_IP = os.environ.get('HOST_IP', '0.0.0.0')
+WEB_PORT = int(os.environ.get('WEB_PORT', 5000))  # ← FIXED! Default 5000, env override
 
 PYTHON_EXEC = sys.executable
 
