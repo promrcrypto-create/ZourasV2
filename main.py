@@ -49,7 +49,7 @@ PORT_RANGE_START = 10000
 PORT_RANGE_END = 11000
 HOST_DOMAIN = os.environ.get('HOST_DOMAIN', 'localhost')
 HOST_IP = os.environ.get('HOST_IP', '0.0.0.0')
-WEB_PORT = int(os.environ.get('WEB_PORT', 5000))  # ← FIXED! Default 5000, env override
+WEB_PORT = int(os.environ.get('WEB_PORT', 5000))
 
 PYTHON_EXEC = sys.executable
 
@@ -282,7 +282,7 @@ class ProjectManager:
         file_count = sum(1 for _ in proj_dir.rglob('*') if _.is_file())
         
         proj = HostedProject(
-            id=proj_id,
+                       id=proj_id,
             name=project_name,
             status="deploying",
             port=None,
@@ -963,4 +963,4 @@ if __name__ == '__main__':
     
     """)
     
-    socketio.run(app, host=HOST_IP, port=WEB_PORT, debug=False)
+    socketio.run(app, host=HOST_IP, port=WEB_PORT, debug=False, allow_unsafe_werkzeug=True)
